@@ -2,10 +2,30 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import ModalEdit from "../../../component/modal-edit";
 import ModalSuccess from "../../../component/modal-success";
+import Axios from "axios";
+
+function useDelete() {
+  const [data, setData] = useState([]);
+
+  async function deleteProduct(id) {
+    try {
+      const res = await Axios({
+        method: "DELETE",
+        url: "http://localhost:3030/products/" + id
+      });
+      setData(res);
+    } catch (err) {
+      setData(err);
+    }
+  }
+
+  return [data, deleteProduct];
+}
 
 export default ({ key, val, index, ...props }) => {
   const [modalEditShow, setModalEditShow] = useState(false);
   const [modalSuccessShow, setModalSuccessShow] = useState(false);
+  const [data, deleteProduct] = useDelete();
 
   return (
     <tr key={index}>
@@ -22,7 +42,14 @@ export default ({ key, val, index, ...props }) => {
         >
           Edit
         </Button>
-        <Button variant="danger" onClick={() => setModalSuccessShow(true)}>
+        <Button
+          variant="danger"
+          onClick={async () => {
+            await deleteProduct(val.id);
+            await props.refetch();
+            setModalSuccessShow(true);
+          }}
+        >
           Delete
         </Button>
       </td>
