@@ -1,42 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Table, Container, Button } from "react-bootstrap";
 import ModalAdd from "../../../component/modal-add";
 import FoodItems from "./foodItems";
 
-// const data = [
-//   {
-//     name: "Pevita Pierce",
-//     product: "Latte",
-//     type: "Drink",
-//     price: 100000
-//   },
-//   {
-//     name: "Pevita Pierce",
-//     product: "Latte",
-//     type: "Drink",
-//     price: 100000
-//   },
-//   {
-//     name: "Pevita Pierce",
-//     product: "Latte",
-//     type: "Drink",
-//     price: 100000
-//   },
-//   {
-//     name: "Pevita Pierce",
-//     product: "Latte",
-//     type: "Drink",
-//     price: 100000
-//   }
-// ];
-
 export default ({ data, ...props }) => {
+  const [show, setShow] = useState(false);
   return (
     <Container className="mt-4  ">
-      <Button variant="success" className="mb-2">
+      <Button variant="success" onClick={() => setShow(true)} className="mb-2">
         ADD
       </Button>
+      <ModalAdd
+        show={show}
+        refetch={props.refetch}
+        handleClose={() => setShow(false)}
+      ></ModalAdd>
       <Table striped bordered hover>
         <thead>
           <tr>

@@ -23,15 +23,15 @@ function useProducts() {
     getProducts();
   }, []);
 
-  return [data];
+  return [data, getProducts];
 }
 
 export default () => {
-  const [data] = useProducts();
+  const [data, refetch] = useProducts();
   return (
     <>
       <SearchBar></SearchBar>
-      <FoodTable data={data}></FoodTable>
+      <FoodTable data={data} refetch={refetch}></FoodTable>
     </>
   );
 };
