@@ -1,13 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import logo from './logo.svg';
-import SearchBar from './comp/searchBar';
-import "./bootstrap/dist/css/bootstrap.min.css";
-import './App.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import logo from "./logo.svg";
+
+import Home from "./pages/home";
+import "./App.css";
 
 function App() {
   return (
-    <SearchBar />
+    <>
+      <Home></Home>
+    </>
   );
 }
 
