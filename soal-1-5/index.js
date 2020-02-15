@@ -47,7 +47,6 @@ function biodata(){
 // console.log(biodata())
 // console.log("------------------------------------", "\n\n")
 
-// Soa no 2
 const Validate = {
     userName : (userName) => {
         const userNameRegex = /^[a-z]{5,9}$/gm;
@@ -80,7 +79,6 @@ const Validate = {
 // console.log("------------------------------------", "\n\n")
 
 
-// SOAL NO 3
 
 function countChar(text, char){
     let counter = 0;
@@ -142,7 +140,7 @@ function validateColor(hexCode){
     return result
 }
 
-// console.log("SOAL NO 3")
+// console.log("SOAL NO 4")
 // console.log("------------------------------------")
 // console.log(validateColor('#eee'))
 // console.log(validateColor('#F3F3F3'))
@@ -150,6 +148,36 @@ function validateColor(hexCode){
 // console.log("------------------------------------", "\n\n")
 
 
-function findHighestProfit(params) {
+function findHighestProfit(numbers) {
+
+    if(!Array.isArray(numbers)) return "Error !"
+
+
+    let min = null;
+    let max = null;
+    let diff = 0;
+
+
+    for (let i = 0; i < numbers.length; i++) {
+        let tempMin = min < numbers[i] && min !== null ? min : numbers[i]
+        let tempMax = max > numbers[i+1] && max !== null? max : numbers[i+1]
+
+        let tempDiff = tempMax - tempMin 
+
+        if(tempDiff > diff){
+            min = tempMin
+            max = tempMax
+            diff = max - min
+        }
+    }
+
+    return diff === 0 ? "Tidak bisa mendapatkan profit pada hari-hari ini" : diff
     
 }
+
+
+console.log("SOAL NO 5")
+console.log("------------------------------------")
+console.log(findHighestProfit([10, 2, 11, 20, 3, 5]))
+console.log(findHighestProfit([33, 29, 11, 3]))
+console.log("------------------------------------", "\n\n")
