@@ -16,20 +16,20 @@ module.exports = {
       },
       CashierId: {
         type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
+        // onDelete: "CASCADE",
         allowNull: false,
         foreignKey: true,
         references: {
-          model: "Cashiers",
+          model: "cashiers",
           key: "id"
         }
       },
       CategoryId: {
         type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
+        // onDelete: "CASCA DE",
         allowNull: false,
         references: {
-          model: "Categories",
+          model: "categories",
           key: "id"
         }
       },

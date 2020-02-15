@@ -39,11 +39,11 @@ router.get("/", async function(req, res, next) {
 // POST product
 router.post("/", async function(req, res, next) {
   try {
-    const { name, CashierId, CategoryId, price } = req.body;
+    const { name, cashierId, categoryId, price } = req.body;
     const product = await model.product.create({
       name,
-      CashierId,
-      CategoryId,
+      cashierId,
+      categoryId,
       price
     });
     if (product) {
@@ -65,12 +65,12 @@ router.post("/", async function(req, res, next) {
 router.patch("/:id", async function(req, res, next) {
   try {
     const productId = req.params.id;
-    const { name, CashierId, CategoryId, price } = req.body;
+    const { name, cashierId, categoryId, price } = req.body;
     const product = await model.product.update(
       {
         name,
-        CashierId,
-        CategoryId,
+        cashierId,
+        categoryId,
         price
       },
       {
