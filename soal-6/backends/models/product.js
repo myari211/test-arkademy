@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   product.associate = function(models) {
-    models.product.hasOne(models.categories);
-    models.product.hasOne(models.cashier);
+    models.product.belongsTo(models.categories);
+    models.product.belongsTo(models.cashier);
 
     // associations can be defined here
   };

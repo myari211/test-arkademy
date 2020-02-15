@@ -4,7 +4,16 @@ const model = require("../models/index"); // GET product listing.
 
 router.get("/", async function(req, res, next) {
   try {
-    const product = await model.product.findAll();
+    const product = await model.product.findAll({
+      include: [
+        {
+          model: model.categories
+        },
+        {
+          model: model.cashier
+        }
+      ]
+    });
     if (product.length !== 0) {
       res.json({
         status: "OK",

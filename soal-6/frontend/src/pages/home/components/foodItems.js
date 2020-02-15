@@ -10,9 +10,9 @@ export default ({ key, val, index, ...props }) => {
   return (
     <tr key={index}>
       <td>{index + 1}</td>
+      <td>{val.cashier.name}</td>
       <td>{val.name}</td>
-      <td>{val.product}</td>
-      <td>{val.type}</td>
+      <td>{val.category.name}</td>
       <td>{val.price}</td>
       <td className="d-flex justify-content-center p-2">
         <Button
