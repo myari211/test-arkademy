@@ -9,8 +9,10 @@ export default ({ show, handleClose, ...props }) => {
       <Modal.Body>
         <div className="d-flex flex-column align-items-center">
           <span>
-            DATA RAISA ANDRIANI ID{" "}
-            <span style={{ fontColor: "orange" }}>#1</span>
+            {props.product.cashier.name} ID
+            <span style={{ fontColor: "orange" }}>
+              #{props.product.cashier.id}
+            </span>
           </span>
           <Image style={{ width: 300 }} src={berhasil}></Image>
           <span>BERHASIL DIHAPUS</span>

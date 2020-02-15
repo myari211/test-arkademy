@@ -15,6 +15,7 @@ function useDelete() {
       });
       setData(res);
     } catch (err) {
+      console.log(err);
       setData(err);
     }
   }
@@ -28,7 +29,7 @@ export default ({ key, val, index, ...props }) => {
   const [data, deleteProduct] = useDelete();
 
   return (
-    <tr key={index}>
+    <tr key={val.id + Date.now()}>
       <td>{index + 1}</td>
       <td>{val.cashier.name}</td>
       <td>{val.name}</td>
@@ -62,6 +63,7 @@ export default ({ key, val, index, ...props }) => {
       <ModalSuccess
         show={modalSuccessShow}
         handleClose={() => setModalSuccessShow(false)}
+        product={val}
       ></ModalSuccess>
     </tr>
   );
