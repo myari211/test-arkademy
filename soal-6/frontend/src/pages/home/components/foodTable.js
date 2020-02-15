@@ -29,7 +29,12 @@ export default ({ data, ...props }) => {
         <tbody>
           {data.data &&
             data.data.map((val, key) => (
-              <FoodItems val={val} key={key} index={key}></FoodItems>
+              <FoodItems
+                val={val}
+                key={key}
+                index={key}
+                refetch={props.refetch}
+              ></FoodItems>
             ))}
         </tbody>
       </Table>

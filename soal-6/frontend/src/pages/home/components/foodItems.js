@@ -29,6 +29,8 @@ export default ({ key, val, index, ...props }) => {
       <ModalEdit
         show={modalEditShow}
         handleClose={() => setModalEditShow(false)}
+        product={val}
+        refetch={props.refetch}
       ></ModalEdit>
       <ModalSuccess
         show={modalSuccessShow}
